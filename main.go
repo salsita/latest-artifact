@@ -87,7 +87,7 @@ func main() {
 
 		// If the request path contains "latest" as the base name, we search
 		// relevant directory and return 303 to the file modified most recently.
-		dir := filepath.Join(root, path.Base(urlPath))
+		dir := filepath.Join(root, path.Dir(urlPath))
 		infos, err := ioutil.ReadDir(dir)
 		if err != nil {
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
