@@ -74,7 +74,7 @@ func main() {
 		}
 
 		// Return a redirect.
-		newPath := path.Join(path.Base(urlPath), infos[k].Name())
+		newPath := path.Join(path.Dir(urlPath), infos[k].Name())
 		http.Redirect(rw, req, newPath, http.StatusTemporaryRedirect)
 	})
 
