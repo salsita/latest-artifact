@@ -68,7 +68,8 @@ func main() {
 			t time.Time
 		)
 		for i, info := range infos {
-			if info.ModTime().After(t) {
+			if mt := info.ModTime(); mt.After(t) {
+				t = mt
 				k = i
 			}
 		}
